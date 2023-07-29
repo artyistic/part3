@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 
 const usage = 
 `usage: 
@@ -6,7 +6,7 @@ const usage =
 \tnode mongo.js <password> <name> <phoneNumber>: to add a new entry`
 
 if (process.argv.length<3) {
-  console.log('give password as argument')
+  console.log("give password as argument")
   process.exit(1)
 }
 else if(process.argv.length == 4 || process.argv.length > 5){
@@ -19,7 +19,7 @@ const password = process.argv[2]
 const url =
   `mongodb+srv://artyistic:${password}@cluster0.qagfpyf.mongodb.net/phoneBook?retryWrites=true&w=majority`
 
-mongoose.set('strictQuery',false)
+mongoose.set("strictQuery",false)
 mongoose.connect(url)
 
 const personSchema = new mongoose.Schema({
@@ -27,7 +27,7 @@ const personSchema = new mongoose.Schema({
   number: String,
 })
 
-const Person = mongoose.model('Person', personSchema)
+const Person = mongoose.model("Person", personSchema)
 
 
 if (process.argv.length == 3){
